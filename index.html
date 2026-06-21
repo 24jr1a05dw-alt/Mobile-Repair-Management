@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Dad's Mobile Repair Manager</title>
+
+<meta name="msapplication-TileColor" content="#0f172a">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="color-scheme" content="dark">
+
+<link rel="stylesheet" href="style.css">
+<link rel="manifest" href="manifest.json">
+<link rel="apple-touch-icon" href="icon.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+</head>
+<body>
+
+<!-- Father's Day Welcome Screen -->
+
+<div id="welcomeModal" class="modal">
+
+<div class="modal-content">
+
+<h1>❤️ Happy Father's Day ❤️</h1>
+
+<h2 id="fatherName">
+Dad
+</h2>
+
+<p>
+Thank you for every sacrifice,
+every lesson,
+and every smile.
+
+This website is specially made for you.
+</p>
+
+<p>
+Love You Dad ❤️
+</p>
+
+<button id="startAppBtn">
+Start Managing Shop
+</button>
+
+</div>
+
+</div>
+
+<!-- Header -->
+
+<header class="main-header">
+
+<div class="shop-brand">
+
+<h1>
+📱 Siva sandeep mobiles
+</h1>
+
+<p>
+Professional Mobile Repair Management System
+</p>
+
+</div>
+
+<div class="header-actions">
+
+<button id="languageBtn">
+తెలుగు
+</button>
+
+<button id="themeBtn">
+🌙
+</button>
+
+</div>
+
+</header>
+
+<!-- Hero -->
+
+<section class="hero">
+
+<h2>
+Welcome Dad 👋
+</h2>
+
+<p>
+Manage Repairs, Customers, Inventory and Earnings
+in one place.
+</p>
+
+</section>
+
+<!-- Dashboard -->
+
+<section class="dashboard">
+
+<div class="dash-card">
+
+<h2 id="dueTodayCount">
+0
+</h2>
+
+<p>
+📅 Due Today
+</p>
+
+</div>
+
+<div class="dash-card">
+<h2 id="readyJobs">0</h2>
+<p class="status-badge Ready">🟢 Ready</p>
+</div>
+
+<div class="dash-card">
+<h2 id="underRepairJobs">0</h2>
+<p class="status-badge UnderRepair">🔵 Under Repair</p>
+</div>
+
+<div class="dash-card">
+<h2 id="totalJobs">0</h2>
+<p>Total Jobs</p>
+</div>
+
+<div class="dash-card">
+<h2 id="pendingJobs">0</h2>
+<p class="status-badge Pending">🟡 Pending</p>
+</div>
+
+<div class="dash-card">
+<h2 id="completedJobs">0</h2>
+<p class="status-badge Delivered">✅ Delivered</p>
+</div>
+
+<div class="dash-card">
+<h2 id="todayEarnings">₹0</h2>
+<p>Today's Earnings</p>
+</div>
+
+<div class="dash-card">
+<h2 id="monthEarnings">₹0</h2>
+<p>Monthly Earnings</p>
+</div>
+
+<div class="dash-card">
+<h2 id="totalEarnings">₹0</h2>
+<p>Total Earnings</p>
+</div>
+
+</section>
+<section
+class="card-section">
+
+<h2>
+📅 Due Today
+</h2>
+
+<div id="dueTodayList">
+</div>
+
+</section>
+
+<!-- Navigation -->
+
+<section class="menu-grid">
+
+<button class="menu-btn" data-target="repairSection">
+🔧 Repair Jobs
+</button>
+
+<button class="menu-btn" data-target="customerSection">
+👥 Customers
+</button>
+
+<button class="menu-btn" data-target="inventorySection">
+📦 Inventory
+</button>
+
+<button class="menu-btn" data-target="billingSection">
+🧾 Billing
+</button>
+
+<button class="menu-btn" data-target="familySection">
+❤️ Family Corner
+</button>
+
+</section>
+
+<!-- Repair Section -->
+
+<section id="repairSection" class="card-section">
+
+<h2>🔧 Add Repair Job</h2>
+
+<form id="repairForm">
+
+<input
+type="text"
+id="customerName"
+placeholder="Customer Name"
+required
+aria-label="Customer Name">
+
+<input
+type="tel"
+id="customerPhone"
+placeholder="Phone Number"
+required
+aria-label="Customer Phone Number">
+
+<input
+type="text"
+id="mobileModel"
+placeholder="Mobile Model"
+required
+aria-label="Mobile Model">
+
+<textarea
+id="problemDescription"
+placeholder="Problem Description"
+required
+aria-label="Problem Description">
+</textarea>
+
+<input
+type="number"
+id="repairCost"
+placeholder="Repair Cost"
+required
+aria-label="Repair Cost">
+
+<input
+type="date"
+id="deliveryDate"
+aria-label="Expected Delivery Date">
+
+<select id="repairStatus" aria-label="Repair Status">
+
+<option value="Pending">
+Pending
+</option>
+
+<option value="Under Repair">
+Under Repair
+</option>
+
+<option value="Ready">
+Ready
+</option>
+
+<option value="Delivered">
+Delivered
+</option>
+
+</select>
+
+<button type="submit">
+Add Repair Job
+</button>
+
+</form>
+
+</section>
+
+<!-- Search Customer -->
+
+<section id="customerSection" class="card-section">
+
+<h2>👥 Customer Search</h2>
+
+<input
+type="text"
+id="searchInput"
+placeholder="Search by Name, Number or Model">
+
+<div id="customerResults">
+</div>
+
+<div id="customerHistory">
+</div>
+</section>
+
+<!-- Repair Jobs -->
+
+<section class="card-section">
+
+<h2>📱 Repair Jobs List</h2>
+
+<div id="repairList">
+</div>
+
+</section>
+
+<!-- Inventory -->
+
+<section id="inventorySection" class="card-section">
+
+<h2>📦 Inventory Manager</h2>
+
+<form id="inventoryForm">
+
+<input
+type="text"
+id="partName"
+placeholder="Part Name">
+
+<input
+type="number"
+id="partQty"
+placeholder="Quantity">
+
+<button type="submit">
+Add Item
+</button>
+
+</form>
+
+<div id="inventoryList">
+</div>
+
+</section>
+
+<!-- Billing -->
+
+<section id="billingSection" class="card-section">
+
+<h2>🧾 Bill Generator</h2>
+
+<form id="billForm">
+
+<input
+type="text"
+id="billCustomer"
+placeholder="Customer Name">
+
+<input
+type="text"
+id="billModel"
+placeholder="Mobile Model">
+
+<input
+type="text"
+id="billRepair"
+placeholder="Repair Type">
+
+<input
+type="number"
+id="billAmount"
+placeholder="Amount">
+
+<button type="submit">
+Generate Bill
+</button>
+
+</form>
+
+<div id="billPreview">
+
+<h3>Bill Preview</h3>
+
+<div id="billOutput">
+No Bill Generated
+</div>
+
+<button id="downloadBillBtn">
+Download Bill
+</button>
+
+</div>
+
+</section>
+
+<!-- WhatsApp -->
+
+<section class="card-section">
+
+<h2>📲 WhatsApp Ready Message</h2>
+
+<input
+type="text"
+id="whatsappNumber"
+placeholder="Customer Number">
+
+<label for="messageType">Message Type</label>
+<select id="messageType" name="messageType" aria-label="Message Type">
+
+<option value="repair-received">Repair Received</option>
+
+<option value="under-repair">Under Repair</option>
+
+<option value="ready-for-collection">Ready For Collection</option>
+
+<option value="delivered">Delivered</option>
+
+</select>
+
+<button id="whatsappBtn">
+Send Message
+</button>
+
+</section>
+
+<!-- Family Corner -->
+
+<section id="familySection" class="card-section">
+
+<h2>❤️ Family Corner</h2>
+
+<div class="family-box">
+
+<img
+src="family.jpg"
+alt="Family Photo"
+class="family-photo">
+
+<h3>
+To The Best Dad
+</h3>
+
+<p>
+
+Thank you for your hard work,
+love and support.
+
+Every success in my life
+is because of your sacrifices.
+
+Happy Father's Day ❤️
+
+</p>
+
+</div>
+
+</section>
+
+<section class="card-section">
+
+<h2>
+💾 Backup & Restore
+</h2>
+
+<button id="exportDataBtn">
+📤 Export Backup
+</button>
+
+<button id="importDataBtn">
+📥 Import Backup
+</button>
+
+<input
+type="file"
+id="importFile"
+hidden>
+
+</section>
+
+<!-- Footer -->
+
+<footer>
+
+<p>
+Made With ❤️ For Dad
+</p>
+
+<p>
+Father's Day Special Edition
+</p>
+
+</footer>
+
+<!-- Toast -->
+
+<div id="toast"></div>
+
+<!-- Scripts -->
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+<script src="script.js"></script>
+
+<script>
+if ('serviceWorker' in navigator) {
+window.addEventListener('load', () => {
+navigator.serviceWorker.register('service-worker.js');
+});
+}
+</script>
+
+</body>
+</html>
